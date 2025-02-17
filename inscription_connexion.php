@@ -17,7 +17,6 @@ if (isset($_POST['submit_inscription'])) {
             $insertUser->execute([$login, $hashedPassword]);
 
             $message = 'Inscription réussie! Vous pouvez maintenant vous connecter.';
-            // Redirection vers connexion.php
             header('Location: connexion.php');
             exit();
         } else {
@@ -28,6 +27,7 @@ if (isset($_POST['submit_inscription'])) {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -36,20 +36,24 @@ if (isset($_POST['submit_inscription'])) {
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Inscription</h1>
+<body class="page-inscription-connexion">
+        <h1>Inscription</h1>
 
-    <?php if ($message) : ?>
-        <p><?php echo $message; ?></p>
-    <?php endif; ?>
+        <?php if (!empty($message)) : ?>
+            <p class="message"><?php echo htmlspecialchars($message); ?></p>
+        <?php endif; ?>
 
-    <form action="inscription_connexion.php" method="POST">
-        <label for="login_inscription">Pseudo :</label>
-        <input type="text" name="login_inscription" id="login_inscription" required>
-        <label for="password_inscription">Mot de passe :</label>
-        <input type="password" name="password_inscription" id="password_inscription" required>
-        <button type="submit" name="submit_inscription">S'inscrire</button>
-    </form>
+        <form action="inscription.php" method="POST">
+            <label for="login_inscription">Pseudo :</label>
+            <input type="text" name="login_inscription" id="login_inscription" required>
 
-    <p>Déjà inscrit ? <a href="connexion.php">Se connecter</a></p>
+            <label for="password_inscription">Mot de passe :</label>
+            <input type="password" name="password_inscription" id="password_inscription" required>
+
+            <button type="submit" name="submit_inscription">S'inscrire</button>
+        </form>
+
+        <p>Déjà inscrit ? <a href="connexion.php">Se connecter</a></p>
+    </div>
 </body>
 </html>

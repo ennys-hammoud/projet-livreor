@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="styles.css">
     <title>Connexion</title>
 </head>
-<body>
+<body class="page-connexion">
     <h1>Connexion</h1>
 
     <?php if ($message): ?>

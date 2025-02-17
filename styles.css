@@ -1,100 +1,367 @@
-/* Style global */
+/* Style global du body */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1c1c1c; /* Fond noir/gris très foncé */
+    background-color: #a2c8d7; /* Bleu pastel pour le fond */
     margin: 0;
     padding: 0;
-    color: #e0e0e0; /* Texte en gris clair */
+    color: #bbefff; /* Bleu pastel pour le texte */
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
 }
 
-/* Conteneur général */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Entête */
+/* Style du header */
 header {
-    background-color: #2a2a2a; /* Gris foncé */
-    padding: 60px 0;
-    text-align: center;
-    color: #fff;
-    border-bottom: 5px solid #f05454; /* Rouge vif pour accentuer */
-    margin-bottom: 30px;
-}
-
-header h1 {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    color: #f05454; /* Rouge vif */
-}
-
-header p {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    color: #d1d1d1; /* Gris clair */
-}
-
-/* Navigation */
-nav {
-    background-color: #333; /* Gris foncé */
+    background-color: #a2c8d7; /* Bleu pastel pour l'entête */
+    color: #bbefff; /* Bleu pastel pour le texte */
     padding: 20px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    border-bottom: 3px solid #dec0c0; /* Rose pâle pour la bordure */
+    width: 100%;
     margin-bottom: 30px;
 }
 
-nav ul {
+/* Container pour les sections */
+.container {
+    width: 80%;
+    margin: auto;
+    background-color: #fff7f2; /* Fond doux et lumineux */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+}
+
+/* Formulaire */
+form {
+    background-color: #fff1e5; /* Fond beige clair pour le formulaire */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Style des inputs et textareas */
+input[type="text"], input[type="password"], textarea {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: 1px solid #d1b87f; /* Bordure couleur beige/marron clair */
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 16px;
+    color: #bbefff; /* Bleu pastel pour le texte */
+}
+
+/* Boutons */
+button {
+    background-color: #f2c6d2; /* Rose doux */
+    color: #fff;
+    padding: 14px 22px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    max-width: 200px;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #f1a7b1; /* Rose plus vif au survol */
+    transform: translateY(-3px); /* Légère animation de survol */
+}
+
+button:active {
+    transform: translateY(0); /* Effet de pression */
+}
+
+/* Style des liens dans la nav */
+nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    text-align: center;
 }
 
 nav ul li {
-    margin: 0 20px;
+    display: inline-block;
+    margin: 10px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #f05454; /* Rouge vif */
-    font-size: 1.3rem;
+    color: #bbefff; /* Bleu pastel pour les liens */
+    font-size: 18px;
     font-weight: bold;
-    transition: color 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #ffd700; /* Jaune vif */
+    background-color: #f7d3e0; /* Rose clair au survol */
+    color: #fff;
+}
+
+/* Style des cards */
+.card {
+    background-color: #fff7f2; /* Fond doux */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Légère élévation au survol */
+}
+
+.card-header {
+    background-color: #f7d3e0; /* Rose pâle pour l'entête de card */
+    color: #bbefff; /* Bleu pastel pour le texte */
+    padding: 12px;
+    border-radius: 8px 8px 0 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+.card-body {
+    padding: 15px;
+    font-size: 16px;
+    color: #bbefff; /* Bleu pastel pour le texte */
 }
 
 /* Footer */
 footer {
-    background-color: #222; /* Gris foncé */
-    padding: 20px 0;
     text-align: center;
-    color: #f05454; /* Rouge vif */
-    margin-top: auto;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f2c6d2; /* Rose doux */
+    color: #bbefff; /* Bleu pastel pour le texte */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 16px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 30px;
 }
 
-footer p {
-    font-size: 1rem;
+/* === Page Connexion === */
+body.page-connexion {
+    justify-content: center; /* Centrer verticalement */
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.5rem;
-    }
+body.page-connexion h1 {
+    margin-bottom: 20px;
+    color: #dec0c0;
+}
 
-    nav ul {
-        flex-direction: column;
-    }
+body.page-connexion form {
+    background-color: #fff1e5;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px; /* Tu peux ajuster */
+    box-sizing: border-box;
+    text-align: left;
+}
 
-    nav ul li {
-        margin: 10px 0;
-    }
+body.page-connexion label {
+    font-weight: bold;
+    color: #333;
+}
+
+body.page-connexion input[type="text"],
+body.page-connexion input[type="password"] {
+    width: calc(100% - 28px); /* Pour éviter de trop coller */
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #d1b87f;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+}
+
+body.page-connexion button {
+    background-color: #f2c6d2;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+body.page-connexion button:hover {
+    background-color: #f1a7b1;
+}
+
+/* === Page Inscription & Connexion === */
+body.page-inscription-connexion {
+    justify-content: center; /* Centrer verticalement */
+}
+
+body.page-inscription-connexion h1 {
+    margin-bottom: 20px;
+    color: #dec0c0;
+}
+
+body.page-inscription-connexion form {
+    background-color: #fff1e5;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+body.page-inscription-connexion label {
+    font-weight: bold;
+    color: #333;
+}
+
+body.page-inscription-connexion input[type="text"],
+body.page-inscription-connexion input[type="password"],
+body.page-inscription-connexion input[type="email"] {
+    width: calc(100% - 28px);
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #d1b87f;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+}
+
+body.page-inscription-connexion button {
+    background-color: #f2c6d2;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+body.page-inscription-connexion button:hover {
+    background-color: #f1a7b1;
+}
+
+/* Style général pour inscription/connexion */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* === Page Modifier Profil === */
+body.page-profil {
+    justify-content: center;
+}
+
+body.page-profil h1 {
+    margin-bottom: 20px;
+    color: #dec0c0;
+}
+
+body.page-profil form {
+    background-color: #fff1e5;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+body.page-profil label {
+    font-weight: bold;
+    color: #333;
+}
+
+body.page-profil input[type="text"],
+body.page-profil input[type="password"] {
+    width: calc(100% - 28px);
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #d1b87f;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+}
+
+body.page-profil button {
+    background-color: #f2c6d2;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+body.page-profil button:hover {
+    background-color: #f1a7b1;
+}
+
+body.page-profil p {
+    color: red;
+    text-align: center;
+}
+
+body.page-profil a {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #f2a3a3;
+    text-decoration: none;
+}
+
+body.page-profil a:hover {
+    text-decoration: underline;
+}
+
+/* Style général commun */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }

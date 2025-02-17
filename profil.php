@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
     <title>Modifier mon profil</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="page-profil">
     <h1>Modifier mon profil</h1>
 
     <?php if ($message) : ?>
