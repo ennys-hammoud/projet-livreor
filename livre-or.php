@@ -36,7 +36,7 @@ $totalPages = ceil($totalComments / $commentsPerPage);
 
     <!-- Formulaire de recherche -->
     <form action="livre-or.php" method="GET">
-        <input type="text" name="search" placeholder="Rechercher..." value="<?= $search ?>">
+        <input type="text" name="search" placeholder="Mots clés" value="<?= $search ?>">
         <button type="submit">Rechercher</button>
     </form>
 

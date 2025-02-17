@@ -13,10 +13,16 @@ require_once 'classes/comment.php';
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Header -->
     <header>
         <h1>Bienvenue sur notre Livre d'Or</h1>
+        <!-- Image de fond tamisé sous le titre -->
+        <div class="image-banniere">
+            <img src="./image.jpg" alt="Image de fond tamisé">" alt="Image de fond tamisé">
+        </div>
     </header>
 
+    <!-- Navigation -->
     <nav>
         <ul>
             <li><a href="inscription_connexion.php">S'inscrire</a></li>
@@ -26,11 +32,13 @@ require_once 'classes/comment.php';
         </ul>
     </nav>
 
+    <!-- Contenu Principal -->
     <main class="container accueil">
         <p>Sur ce site, vous pouvez vous inscrire, vous connecter, modifier vos informations personnelles, et laisser un commentaire dans notre Livre d'Or.</p>
         <p>N'hésitez pas à explorer les différentes sections via le menu ci-dessus.</p>
     </main>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Livre D'Or. Tous droits réservés.</p>
     </footer>
