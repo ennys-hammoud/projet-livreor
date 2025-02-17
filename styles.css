@@ -1,0 +1,100 @@
+/* Style global */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1c1c1c; /* Fond noir/gris très foncé */
+    margin: 0;
+    padding: 0;
+    color: #e0e0e0; /* Texte en gris clair */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Conteneur général */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Entête */
+header {
+    background-color: #2a2a2a; /* Gris foncé */
+    padding: 60px 0;
+    text-align: center;
+    color: #fff;
+    border-bottom: 5px solid #f05454; /* Rouge vif pour accentuer */
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #f05454; /* Rouge vif */
+}
+
+header p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #d1d1d1; /* Gris clair */
+}
+
+/* Navigation */
+nav {
+    background-color: #333; /* Gris foncé */
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #f05454; /* Rouge vif */
+    font-size: 1.3rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffd700; /* Jaune vif */
+}
+
+/* Footer */
+footer {
+    background-color: #222; /* Gris foncé */
+    padding: 20px 0;
+    text-align: center;
+    color: #f05454; /* Rouge vif */
+    margin-top: auto;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
