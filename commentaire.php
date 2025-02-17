@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Ajouter un Commentaire</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="page-commentaire">
     <h1>Ajouter un Commentaire</h1>
 
     <?php if (isset($error)) : ?>

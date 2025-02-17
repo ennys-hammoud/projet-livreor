@@ -31,7 +31,7 @@ $totalPages = ceil($totalComments / $commentsPerPage);
     <title>Livre d'or</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="page-livre-or">
     <h1>Livre d'Or</h1>
 
     <!-- Formulaire de recherche -->
