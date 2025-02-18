@@ -1,10 +1,10 @@
 /* Style global du body */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #5a7a97; /* Bleu pastel pour le fond */
+    background-color: #e8f1fa;
     margin: 0;
     padding: 0;
-    color: #e09bb1; /* Bleu pastel pour le texte */
+    color: #e09bb1; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,42 +14,26 @@ body {
 
 /* Style du header */
 header {
-    background-color: #5a7a97; /* Bleu pastel pour l'entête */
-    color: #e09bb1; /* Bleu pastel pour le texte */
+    background-color: #e8f1fa;
+    color: #e09bb1; 
     padding: 20px 0;
     text-align: center;
     font-size: 30px;
     font-weight: bold;
-    border-bottom: 3px solid #5a7a97; /* Rose pâle pour la bordure */
+    border-bottom: 3px solid #e8f1fa;
     width: 100%;
     margin-bottom: 30px;
 }
 
 /* === Image sous le titre === */
-.image-banniere {
-    position: relative;
-    width: 100%;
-    height: 400px; /* Ajuste la hauteur selon tes préférences */
-    overflow: hidden;
-    margin-top: 20px;
-}
-
 .image-banniere img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Assure que l'image recouvre toute la zone sans déformation */
+    height: 400px;
+    object-fit: cover;
+    filter: none; /* Enlève tout filtre */
+    opacity: 1; /* Pleine opacité */
 }
 
-/* Pour ajouter un effet tamisé à l'image */
-.image-banniere::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Tamisage noir à 50% de transparence */
-}
 
 /* Container pour les sections */
 .container {

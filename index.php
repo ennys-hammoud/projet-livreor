@@ -27,7 +27,7 @@ require_once 'classes/comment.php';
     <header>
         <h1>Bienvenue sur notre Livre d'Or</h1>
         <div class="image-banniere">
-            <img src="./image.jpg" alt="Image de fond tamisée">
+            <img src="./image.jpg">
         </div>
     </header>
     <!-- Contenu Principal -->
