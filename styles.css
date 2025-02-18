@@ -162,8 +162,8 @@ nav ul li a:hover {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #f2c6d2;
-    color: #5a7a97;
+    background-color: #e8f1fa;
+    color: #e09bb1;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     font-size: 16px;
@@ -175,7 +175,7 @@ footer {
 /* === Page Connexion === */
 body.page-connexion {
     justify-content: center; /* Centrer verticalement */
-    background-color: #5a7a97;
+    background-color: #e8f1fa;
 }
 
 body.page-connexion h1 {
@@ -230,7 +230,7 @@ body.page-connexion button:hover {
 /* === Page Inscription & Connexion === */
 body.page-inscription-connexion {
     justify-content: center; /* Centrer verticalement */
-    background-color: #5a7a97;
+    background-color: #e8f1fa;
 }
 
 body.page-inscription-connexion h1 {
@@ -288,7 +288,7 @@ body.page-inscription-connexion button:hover {
 /* === Page Modifier Profil === */
 body.page-profil {
     justify-content: center;
-    background-color: 	#5a7a97;
+    background-color: 	#e8f1fa;
 }
 
 body.page-profil h1 {
@@ -363,7 +363,7 @@ body.page-livre-or {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #5a7a97;
+    background-color: #e8f1fa;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 20px;
@@ -412,13 +412,13 @@ body.page-livre-or .comment {
     max-width: 600px;
     margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid black;
 }
 
 body.page-livre-or .comment p {
     margin: 0;
     line-height: 1.6;
-    color: white;
+    color: black;
 }
 
 body.page-livre-or .comment strong {
@@ -468,7 +468,7 @@ body.page-livre-or .btn-primary:hover {
 /* === Page Commentaire === */
 body.page-commentaire {
     justify-content: center;
-    background-color: #5a7a97;
+    background-color: #e8f1fa;
     display: flex;
     flex-direction: column;
     align-items: center;
