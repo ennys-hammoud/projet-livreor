@@ -373,82 +373,6 @@ body.page-profil a:hover {
     text-decoration: underline;
 }
 
-/* Style général commun */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-/* === Page Commentaire === */
-body.page-commentaire {
-    justify-content: center;
-}
-
-body.page-commentaire h1 {
-    margin-bottom: 20px;
-    color: #dec0c0;
-}
-
-body.page-commentaire form {
-    background-color: #fff1e5;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    box-sizing: border-box;
-    text-align: left;
-}
-
-body.page-commentaire label {
-    font-weight: bold;
-    color: #333;
-}
-
-body.page-commentaire textarea {
-    width: calc(100% - 28px);
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #d1b87f;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #333;
-    box-sizing: border-box;
-    resize: none;
-}
-
-body.page-commentaire button {
-    background-color: #f2c6d2;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 15px;
-    font-size: 16px;
-}
-
-body.page-commentaire button:hover {
-    background-color: #f1a7b1;
-}
-
-body.page-commentaire p a {
-    color: #f2c6d2;
-    text-decoration: none;
-}
-
-body.page-commentaire p a:hover {
-    text-decoration: underline;
-}
-
-
 /* === Page Livre d'Or améliorée === */
 body.page-livre-or {
     display: flex;
@@ -554,4 +478,78 @@ body.page-livre-or .btn-primary {
 
 body.page-livre-or .btn-primary:hover {
     background-color: #f1a7b1;
+}
+
+/* === Page Commentaire === */
+body.page-commentaire {
+    justify-content: center;
+    background-color: #5a7a97;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+body.page-commentaire h1 {
+    margin-bottom: 20px;
+    color: #e09bb1;
+    text-align: center;
+}
+
+body.page-commentaire form {
+    background-color: #fff1e5;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+body.page-commentaire label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+body.page-commentaire textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #d1b87f;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+    resize: none;
+}
+
+body.page-commentaire button {
+    background-color: #e09bb1;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+body.page-commentaire button:hover {
+    background-color: #f1a7b1;
+}
+
+body.page-commentaire p a {
+    color: #e09bb1;
+    text-decoration: none;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+body.page-commentaire p a:hover {
+    text-decoration: underline;
 }
