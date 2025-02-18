@@ -12,6 +12,7 @@ require_once 'classes/comment.php';
     <title>Accueil - Livre d'Or</title>
     <link rel="stylesheet" href="styles.css">
     <script src="livreor.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
      <!-- Navigation -->
