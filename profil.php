@@ -62,7 +62,6 @@ if (isset($_POST['submit'])) {
 
         <button type="submit" name="submit">Mettre à jour</button>
     </form>
-
-    <a href="deconnexion.php">Se déconnecter</a>
+        <p><a href="deconnexion.php">Se déconnecter</a></p>
 </body>
 </html>

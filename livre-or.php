@@ -74,6 +74,8 @@ $totalPages = ceil($totalComments / $commentsPerPage);
         </div>
     <?php endif; ?>
 
+    <p>Retour           <a href="index.php">Accueil</a></p>
+
 
 </body>
 </html>

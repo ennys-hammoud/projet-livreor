@@ -23,8 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindValue(':id_user', $id_user, PDO::PARAM_INT);
             $stmt->execute();
 
-            header('Location: livre-or.php');
-            exit;
+            // Message de succès à afficher sur la même page
+            $successMessage = 'Commentaire ajouté avec succès !';
         } catch (PDOException $e) {
             $error = 'Erreur lors de l\'ajout : ' . htmlspecialchars($e->getMessage());
         }
@@ -44,8 +44,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="page-commentaire">
     <h1>Ajouter un Commentaire</h1>
 
+    <!-- Affichage du message de succès -->
+    <?php if (isset($successMessage)) : ?>
+        <p class="success-message"><?php echo htmlspecialchars($successMessage); ?></p>
+    <?php endif; ?>
+
+    <!-- Affichage des erreurs éventuelles -->
     <?php if (isset($error)) : ?>
-        <p style="color: red;"><?php echo htmlspecialchars($error); ?></p>
+        <p class="error-message"><?php echo htmlspecialchars($error); ?></p>
     <?php endif; ?>
 
     <form action="commentaire.php" method="post">
