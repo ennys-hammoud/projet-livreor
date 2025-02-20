@@ -1,5 +1,7 @@
 <?php
-require_once 'database.php';
+require_once 'Config/Database.php';
+require_once 'Classes/User.php';
+require_once 'Classes/Comment.php';
 
 $message = '';
 
@@ -35,7 +37,6 @@ if (isset($_POST['submit_inscription'])) {
     <title>Inscription</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
 <body class="page-inscription-connexion">
         <h1>Inscription</h1>
 
@@ -43,7 +44,7 @@ if (isset($_POST['submit_inscription'])) {
             <p class="message"><?php echo htmlspecialchars($message); ?></p>
         <?php endif; ?>
 
-        <form action="inscription.php" method="POST">
+        <form action="inscription_connection.php" method="POST">
             <label for="login_inscription">Pseudo :</label>
             <input type="text" name="login_inscription" id="login_inscription" required>
 

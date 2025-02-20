@@ -1,7 +1,9 @@
 <?php
 session_start();
-require_once 'database.php';
-require_once 'classes/User.php';
+require_once 'Config/Database.php';
+require_once 'Classes/User.php';
+require_once 'Classes/Comment.php';
+
 
 // Initialisation de la classe User
 $user = new User($pdo);

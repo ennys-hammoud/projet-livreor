@@ -6,7 +6,8 @@ if (!isset($_SESSION['user']['id'])) {
     exit();
 }
 
-require_once 'database.php';
+require_once 'Config/Database.php';
+
 
 $message = '';
 

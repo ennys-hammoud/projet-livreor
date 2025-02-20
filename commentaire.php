@@ -1,32 +1,32 @@
 <?php
 session_start();
-require_once 'database.php';
-require_once 'classes/user.php';
-require_once 'classes/comment.php';
+require_once 'Config/Database.php';
+require_once 'Classes/User.php';
+require_once 'Classes/Comment.php';
 
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['user'])) {
-    header('Location: inscription_connexion.php');
+    header('Location: connexion.php');
     exit;
 }
 
-// Traitement du formulaire
+// Initialisation de la classe Comment
+$commentClass = new Comment($pdo);
+
+$message = '';
+$error = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $commentaire = trim($_POST['commentaire']);
     $id_user = $_SESSION['user']['id'];
 
     if (!empty($commentaire)) {
-        try {
-            $query = 'INSERT INTO comment (comment, id_user, date) VALUES (:comment, :id_user, NOW())';
-            $stmt = $pdo->prepare($query);
-            $stmt->bindValue(':comment', $commentaire, PDO::PARAM_STR);
-            $stmt->bindValue(':id_user', $id_user, PDO::PARAM_INT);
-            $stmt->execute();
-
-            // Message de succès à afficher sur la même page
-            $successMessage = 'Commentaire ajouté avec succès !';
-        } catch (PDOException $e) {
-            $error = 'Erreur lors de l\'ajout : ' . htmlspecialchars($e->getMessage());
+        if ($commentClass->ajouterCommentaire($id_user, $commentaire)) {
+            // Redirection pour éviter la resoumission du formulaire
+            header('Location: livre-or.php?success=1');
+            exit;
+        } else {
+            $error = 'Erreur lors de l\'ajout du commentaire.';
         }
     } else {
         $error = 'Le champ commentaire est vide.';
@@ -44,13 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="page-commentaire">
     <h1>Ajouter un Commentaire</h1>
 
-    <!-- Affichage du message de succès -->
-    <?php if (isset($successMessage)) : ?>
-        <p class="success-message"><?php echo htmlspecialchars($successMessage); ?></p>
-    <?php endif; ?>
-
     <!-- Affichage des erreurs éventuelles -->
-    <?php if (isset($error)) : ?>
+    <?php if (!empty($error)): ?>
         <p class="error-message"><?php echo htmlspecialchars($error); ?></p>
     <?php endif; ?>
 

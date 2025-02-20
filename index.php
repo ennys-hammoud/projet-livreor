@@ -1,8 +1,3 @@
-<?php
-require 'database.php';
-require_once 'classes/user.php';
-require_once 'classes/comment.php';
-?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -15,8 +10,9 @@ require_once 'classes/comment.php';
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
-     <!-- Navigation -->
-     <nav>
+    
+    <!-- Navigation -->
+    <nav>
         <ul>
             <li><a href="inscription_connexion.php">S'inscrire</a></li>
             <li><a href="connexion.php">Se connecter</a></li>

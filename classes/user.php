@@ -26,6 +26,10 @@ class User {
         if ($user && password_verify($password, $user['password'])) {
             $this->id = $user['id'];
             $this->login = $login;
+             // Mise en session
+        $_SESSION['user_id'] = $this->id;
+        $_SESSION['user_login'] = $this->login;
+
             return true;
         }
         return false;
@@ -47,5 +51,7 @@ class User {
     public function getLogin() {
         return $this->login;
     }
+
+    
 }
 ?>

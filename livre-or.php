@@ -1,26 +1,20 @@
 <?php
-require_once 'database.php';
-require_once 'classes/User.php';
-require_once 'classes/Comment.php';
+// livre-or.php
+require_once 'Config/Database.php';
+require_once 'Classes/User.php';
+require_once 'Classes/Comment.php';
 
 session_start();
 
-// Initialisation des classes
 $user = new User($pdo);
 $comment = new Comment($pdo);
 
-// Nombre de commentaires par page
 $commentsPerPage = 5;
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-
-// Recherche par mots-clés (si saisie dans la barre de recherche)
 $search = isset($_GET['search']) ? htmlspecialchars(trim($_GET['search'])) : '';
 
-// Récupération des commentaires avec pagination
-$comments = $comment->getCommentaires($page, $commentsPerPage);
+$comments = $comment->getCommentaires($page, $commentsPerPage, $search);
 $totalComments = $comment->countCommentaires($search);
-
-// Calculer le nombre total de pages
 $totalPages = ceil($totalComments / $commentsPerPage);
 ?>
 
@@ -33,27 +27,28 @@ $totalPages = ceil($totalComments / $commentsPerPage);
 </head>
 <body class="page-livre-or">
     <h1>Livre d'Or</h1>
+    <?php if (isset($_GET['message'])): ?>
+        <p style="color: green;"> <?= htmlspecialchars($_GET['message']); ?> </p>
+    <?php endif; ?>
 
-    <!-- Formulaire de recherche -->
     <form action="livre-or.php" method="GET">
         <input type="text" name="search" placeholder="Mots clés" value="<?= $search ?>">
         <button type="submit">Rechercher</button>
     </form>
 
-    <!-- Affichage des commentaires -->
-    <?php if ($comments): ?>
-        <?php foreach ($comments as $comment): ?>
-            <div class="comment">
-                <p><strong><?= htmlspecialchars($comment['login']); ?></strong> (Posté le <?= date('d/m/Y', strtotime($comment['date'])); ?>)</p>
-                <p><?= nl2br(htmlspecialchars($comment['comment'])); ?></p>
-            </div>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <p>Aucun commentaire trouvé.</p>
-    <?php endif; ?>
-    
+    <?php foreach ($comments as $c): ?>
+        <div class="comment">
+            <p><strong><?= htmlspecialchars($c['login']); ?></strong> (Posté le <?= date('d/m/Y', strtotime($c['date'])); ?>)</p>
+            <p><?= nl2br(htmlspecialchars($c['comment'])); ?></p>
+            <?php if (isset($_SESSION['user']) && $_SESSION['user']['login'] === 'ennys'): ?>
+                <form action="supprimer_commentaire.php" method="POST">
+                    <input type="hidden" name="comment_id" value="<?= $c['id']; ?>">
+                    <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer ce commentaire ?');">Supprimer</button>
+                </form>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
 
-    <!-- Pagination -->
     <div class="pagination">
         <?php if ($page > 1): ?>
             <a href="?page=<?= $page - 1 ?>&search=<?= $search ?>">Précédent</a>
@@ -67,15 +62,11 @@ $totalPages = ceil($totalComments / $commentsPerPage);
             <a href="?page=<?= $page + 1 ?>&search=<?= $search ?>">Suivant</a>
         <?php endif; ?>
     </div>
-    <!-- Ajouter un commentaire (si connecté) -->
-    <?php if (isset($_SESSION['user_id'])): ?>
-        <div>
-            <a href="commentaire.php" class="btn btn-primary">Ajouter un commentaire</a>
-        </div>
+
+    <?php if (isset($_SESSION['user'])): ?>
+        <a href="commentaire.php">Ajouter un commentaire</a>
     <?php endif; ?>
 
-    <p>Retour           <a href="index.php">Accueil</a></p>
-
-
+    <p><a href="deconnexion.php">Se déconnecter</a></p>
 </body>
 </html>

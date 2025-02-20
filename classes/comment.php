@@ -1,4 +1,5 @@
 <?php
+// Classes/Comment.php
 class Comment {
     private $pdo;
 
@@ -15,30 +16,23 @@ class Comment {
 
     public function supprimerCommentaire($commentId) {
         $stmt = $this->pdo->prepare("DELETE FROM comment WHERE id = :id");
-        $stmt->bindParam(':id', $commentId);
+        $stmt->bindParam(':id', $commentId, PDO::PARAM_INT);
         return $stmt->execute();
     }
 
-    public function rechercherCommentaires($search) {
-        $stmt = $this->pdo->prepare("SELECT c.comment, c.date, u.login 
-                                     FROM comment c
-                                     JOIN user u ON c.id_user = u.id
-                                     WHERE c.comment LIKE :search
-                                     ORDER BY c.date DESC");
-        $stmt->bindValue(':search', "%$search%", PDO::PARAM_STR);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function getCommentaires($page, $commentsPerPage) {
-        $offset = ($page - 1) * $commentsPerPage;
-        $stmt = $this->pdo->prepare("SELECT c.comment, c.date, u.login 
-                                     FROM comment c
-                                     JOIN user u ON c.id_user = u.id
-                                     ORDER BY c.date DESC
-                                     LIMIT :offset, :limit");
+    public function getCommentaires($page, $perPage, $search = '') {
+        $offset = ($page - 1) * $perPage;
+        $sql = "SELECT c.id, c.comment, c.date, u.login FROM comment c JOIN user u ON c.id_user = u.id";
+        if ($search) {
+            $sql .= " WHERE c.comment LIKE :search";
+        }
+        $sql .= " ORDER BY c.date DESC LIMIT :offset, :limit";
+        $stmt = $this->pdo->prepare($sql);
+        if ($search) {
+            $stmt->bindValue(':search', "%$search%", PDO::PARAM_STR);
+        }
         $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
-        $stmt->bindValue(':limit', $commentsPerPage, PDO::PARAM_INT);
+        $stmt->bindValue(':limit', $perPage, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -56,4 +50,3 @@ class Comment {
         return $stmt->fetchColumn();
     }
 }
-?>
