@@ -24,6 +24,7 @@ $totalPages = ceil($totalComments / $commentsPerPage);
     <meta charset="UTF-8">
     <title>Livre d'or</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=1.0">
 </head>
 <body class="page-livre-or">
     <h1>Livre d'Or</h1>
@@ -31,7 +32,7 @@ $totalPages = ceil($totalComments / $commentsPerPage);
         <p style="color: green;"> <?= htmlspecialchars($_GET['message']); ?> </p>
     <?php endif; ?>
 
-    <form action="livre-or.php" method="GET">
+    <form action="livre-or.php" method="GET" class="form-recherche">
         <input type="text" name="search" placeholder="Mots clés" value="<?= $search ?>">
         <button type="submit">Rechercher</button>
     </form>
@@ -41,10 +42,10 @@ $totalPages = ceil($totalComments / $commentsPerPage);
             <p><strong><?= htmlspecialchars($c['login']); ?></strong> (Posté le <?= date('d/m/Y', strtotime($c['date'])); ?>)</p>
             <p><?= nl2br(htmlspecialchars($c['comment'])); ?></p>
             <?php if (isset($_SESSION['user']) && $_SESSION['user']['login'] === 'ennys'): ?>
-                <form action="supprimer_commentaire.php" method="POST">
-                    <input type="hidden" name="comment_id" value="<?= $c['id']; ?>">
-                    <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer ce commentaire ?');">Supprimer</button>
-                </form>
+                <form action="supprimer_commentaire.php" method="POST" class="form-suppression">
+                <input type="hidden" name="comment_id" value="<?= $c['id']; ?>">
+                <button type="submit" class="btn-supprimer" onclick="return confirm('Voulez-vous vraiment supprimer ce commentaire ?');">Supprimer</button>
+</form>
             <?php endif; ?>
         </div>
     <?php endforeach; ?>
@@ -67,6 +68,11 @@ $totalPages = ceil($totalComments / $commentsPerPage);
         <a href="commentaire.php">Ajouter un commentaire</a>
     <?php endif; ?>
 
+    <?php if (isset($_SESSION['user']) && $_SESSION['user']['login'] === 'ennys'): ?>
     <p><a href="deconnexion.php">Se déconnecter</a></p>
+<?php else: ?>
+    <p><a href="index.php">Retour à l'accueil</a></p>
+<?php endif; ?>
+
 </body>
 </html>

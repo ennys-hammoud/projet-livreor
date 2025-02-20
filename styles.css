@@ -413,6 +413,31 @@ body.page-livre-or button:hover {
     background-color: #e09bb1;
 }
 
+body.page-livre-or .form-suppression {
+    display: inline; /* ou inline-block */
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+body.page-livre-or .btn-supprimer {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 2px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 12px;
+    margin: 0;
+    width: auto; /* Important pour écraser le width global */
+    height: auto; /* Pareil pour height */
+}
+
+body.page-livre-or .btn-supprimer:hover {
+    background-color: #e60000;
+}
 body.page-livre-or .comment {
     width: 100%;
     max-width: 600px;
