@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'id' => $user->getId(),
             'login' => $user->getLogin()
         ];
-        header('Location: commentaire.php');
+        header('Location: livre-or.php');
         exit();
     } else {
         $message = 'Identifiants incorrects';
